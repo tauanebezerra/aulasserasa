@@ -33,18 +33,27 @@ public class TesteBanco {
 //		System.out.println("RG:" + pessoasComConstrutor1.getRg());
 	
 		
+		PessoaFisica pfTauane = new PessoaFisica();
+		pfTauane.setNome("Tauane Bezerra");
+		pfTauane.setEmail("tauane@gmail.com");
+		pfTauane.setTelefone("52255666233");
+		pfTauane.setCpf("879.359.983-88");
+		pfTauane.setProfissao("Estudante");
+		pfTauane.setRg("6655554444");
+		
+		
 		Conta conta1 = new Conta();
 		conta1.setAgencia(1234);
 		conta1.setNumeroConta(7889);
 		//conta1.setSaldo(1000000.50); >> não se deve operar diretamenn",conta1.getSaldo());te essa informação. 
 		//Ela pode apenas ser exibida
-		conta1.setTitular("Tauane Bezerra");
+		conta1.setTitular(pfTauane);
 		
 		conta1.depositar(100000.0);
 		
 		System.out.println("Agência: " + conta1.getAgencia());
 		System.out.println("Conta: " + conta1.getNumeroConta());
-		System.out.println("Titular: " + conta1.getTitular());
+		System.out.println("Titular: " + conta1.getTitular().getNome());
 		System.out.printf("Saldo Atual: %.2f\n",conta1.getSaldo());//para formatar as casas decimais
 		
 		if (conta1.sacar(20.0)) {
@@ -65,6 +74,16 @@ public class TesteBanco {
 			System.out.printf("Saldo Atual Tauane: %.2f\n",conta1.getSaldo());
 			System.out.printf("Saldo Atual Flavia: %.2f\n",conta2.getSaldo());
 	
+			
+		ContaCorrente cc1 = new ContaCorrente();
+		cc1.depositar(1000);
+		System.out.println("Saldo: " + cc1.getSaldo());
+		System.out.println("Limite: " + cc1.getLimite());
+		System.out.println("Saldo Com Limite: " +cc1.getSaldoComLimite());
+		cc1.sacar(1500);
+		System.out.println("Saldo: " + cc1.getSaldo());
+		System.out.println("Saldo Com Limite: " + cc1.getSaldoComLimite());
+		
 	}
 		
 }
